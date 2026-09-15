@@ -32,22 +32,22 @@ function checkAttendance() {
         document.getElementById("attendedClasses").value
     );
 
-    const result = checkAttendance(
+    const result = calculateAttendance(
         totalClasses,
         attendedClasses
     );
 
     const resultDiv = document.getElementById("result");
 
-    if (result.valid) {
+    if (!result.valid) {
         resultDiv.innerHTML = result.message;
         return;
     }
 
     resultDiv.innerHTML =
-        studentName + "'s Attendance:" +
+        studentName + "'s Attendance: " +
         result.percentage + "%<br>" +
-        "status: " + result.status;
+        "Status: " + result.status;
 }
 
 if (typeof module !== "undefined") {
